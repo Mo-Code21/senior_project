@@ -1,0 +1,10 @@
+Arduino_LCD/
+Arduino_main/
+Arduino_pressure_sensor/
+CAlibration.txt
+Pipfile
+Pipfile.lock
+fsrguide.pdf
+motor_1/
+mprls_sensor/
+sensor_orig/
