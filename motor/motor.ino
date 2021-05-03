@@ -48,7 +48,7 @@ void loop()
     if (Serial.available() > 0) {
       uinput = Serial.read();
       
-      if (uinput == '1') {
+      if (uinput == 'r') {
           // Step one revolution in one direction:
           myStepper.step(57);
           Serial.println("motor moved?");
