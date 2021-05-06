@@ -6,24 +6,33 @@
 # Importing Libraries
 import serial
 import time
+import csv
 arduino = serial.Serial(port='COM3', baudrate=115200, timeout=.1)
 
 
-def write_read(x):
-    arduino.write(bytes(x, 'utf-8'))
-    time.sleep(0.05)
-    data = arduino.readline()
+def write_read():
+    # arduino.write(bytes(x, 'utf-8'))
+    # time.sleep(0.05)
+    raw_data = arduino.readline()
+    data = str(arduino_data.decode("utf-8"))
+
     return data
 
 
-def lop():
-    while True:
-        num = input("Enter a number: ")  # Taking input from user
-        value = write_read(num)
-        print(value)  # printing the value
+def save_data(data):
+    # filename = time.strftime("%Y-%m-%d_%H%M")
+    if not os.path.isfile("data.csv"):
+        print("hi")
+        with open("data.csv", 'w') as file:
+            file.write("time,")
+            file.write("readings,")
+            file.write('\n')
 
-        if num == '0':
-            break
+    with open("data.csv", 'a') as file:
+        file.write(str(data[0])+",")
+        file.write(str(data[1])+",")
+        file.write('\n')
+        return print("data printed")
 
 
 def main():

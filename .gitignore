@@ -8,3 +8,5 @@ fsrguide.pdf
 motor_1/
 mprls_sensor/
 sensor_orig/
+motor_trial.py
+live_plot.py

@@ -39,7 +39,7 @@ void setup()
   // Set the motor speed (RPMs):
   myStepper.setSpeed(60);
 
-  Serial.begin(9600);
+  Serial.begin(115200);
 }
 
 

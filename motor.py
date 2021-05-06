@@ -26,9 +26,9 @@ def motor():
 
     b2 = tk.Button(window, text="Close", command=close)
 
-    b1.grid(row=1, column=0, padx=20, pady=30)
+    b1.grid(row=1, column=0)
 
-    b2.grid(row=1, column=2, padx=20, pady=30)
+    b2.grid(row=1, column=2)
 
     window.mainloop()
 
