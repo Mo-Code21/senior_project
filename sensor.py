@@ -1,6 +1,10 @@
 # 5/3/21
 # Mohammed
 # sensor code
+import os
+import serial
+import time
+import matplotlib.pyplot as plt
 
 
 def read_sensor():
@@ -19,8 +23,8 @@ def get_voltage(data):
     return str(5*(data/A))
 
 
-def animate(data):
-    x = range(0, length(data)-1)
+def animate(i, t, data):
+    x = t
     y = data
 
     ax = plt.gca()
@@ -38,6 +42,15 @@ def animate(data):
     ymin = y.min()
 
     ax.set_ylim((ymin - 5), (ymax + 5))
+
+
+def fitting(data):
+    t = np.linspace(0, data[-1], length(data))
+
+    # linear equation
+    fit_constants = np.polyfit(t, data, 1)
+
+    return fit_constants
 
 
 def save_data(filename, data):
