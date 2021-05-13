@@ -62,48 +62,70 @@
 # data = [4, 2]
 # save_data(data)
 #########################################################################
-import serial
-import time
-from itertools import count
-import matplotlib.pyplot as plt
-from matplotlib.animation import FuncAnimation
+# import serial
+# import time
+# from itertools import count
+# import matplotlib.pyplot as plt
+# from matplotlib.animation import FuncAnimation
 
-plt.style.use('fivethirtyeight')
-plt.plot([], [])
+# # arduino.close()
+# # Establish Arduino serial connection
+# arduino = serial.Serial(port='COM3', baudrate=57600,)
+# print('Established serial connection to Arduino')
+# x = []
+# plt.style.use('fivethirtyeight')
+# plt.plot([], [])
 
-x = []
-y = []
-
-
-def animate(i):
-    with open("data.csv", "r") as file:
-        data = file.readlines()
-        for line in data:
-            # data = file.readline()
-            line = line.strip().split(',')
-            x.append(line[0])
-            y.append(line[1])
-            print(x, y)
-
-    plt.plot(x, y)
-    # ax = plt.gca()
-    # line = ax.lines
-
-    # line.set_data(x, y)
-
-    # xlim_low, xlim_high = ax.get_xlim()
-    # ylim_low, ylim_high = ax.get_ylim()
-
-    # ax.set_xlim(xlim_low, (x.max() + 5))
-
-    # ymax = y.max()
-
-    # ymin = y.min()
-
-    # ax.set_ylim((ymin - 5), (ymax + 5))
+# x = []
+# y = []
 
 
-ani = FuncAnimation(plt.gcf(), animate, interval=500)
-plt.tight_layout()
-plt.show()
-########################################################################
+# def animate(i):
+#     # with open("data.csv", "r") as file:
+#     #     data = file.readlines()
+#     #     for line in data:
+#     #         # data = file.readline()
+#     #         line = line.strip().split(',')
+#     #         x.append(line[0])
+#     #         y.append(line[1])
+#     #         print(x, y)
+#     raw_data = arduino.readline()
+#     data = str(raw_data.decode('utf-8'))
+#     data = data.strip().split('/r/n')
+#     x.append(data)
+#     print(x)
+
+#     # ax = plt.gca()
+#     # line = ax.lines
+
+#     # line.set_data(x, y)
+
+#     # xlim_low, xlim_high = ax.get_xlim()
+#     # ylim_low, ylim_high = ax.get_ylim()
+
+#     # ax.set_xlim(xlim_low, (x.max() + 5))
+
+#     # ymax = y.max()
+
+#     # ymin = y.min()
+
+#     # ax.set_ylim((ymin - 5), (ymax + 5))
+
+
+# ani = FuncAnimation(plt.gcf(), animate, interval=500)
+# plt.tight_layout()
+# plt.show()
+# ########################################################################
+from tkinter import *
+import threading
+
+root = Tk()
+
+
+def task():
+    print("hello")
+    root.after(2000, task)  # reschedule event in 2 seconds
+
+
+root.after(2000, task)
+root.mainloop()

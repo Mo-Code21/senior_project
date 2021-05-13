@@ -3,7 +3,7 @@
 # Motor control
 import serial
 import tkinter as tk
-arduino = serial.Serial(port='COM3', baudrate=115200, timeout=.1)
+arduino = serial.Serial(port='COM3', baudrate=57600, timeout=.1)
 
 
 def motor():

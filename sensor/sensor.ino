@@ -15,12 +15,9 @@ void loop() {
 
   if (scale.is_ready()) {
     long reading = scale.read();
-    Serial.print("HX711 reading: ");
     Serial.println(reading);
-  } else {
-    Serial.println("HX711 not found.");
-  }
+  } 
 
-  delay(1000);
+  delay(500);
   
 }
