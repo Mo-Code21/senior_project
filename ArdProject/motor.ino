@@ -19,10 +19,9 @@ void motor() {
   for (int i = 0; i < 57; i++) {
     digitalWrite(step1Pin, HIGH);
     digitalWrite(step2Pin, HIGH);
-    delayMicroseconds(1000);
+    delayMicroseconds(500);
     digitalWrite(step1Pin, LOW);
     digitalWrite(step2Pin, LOW);
-    delayMicroseconds(1000);
+    delayMicroseconds(500);
   }
-  delay(500);
 }

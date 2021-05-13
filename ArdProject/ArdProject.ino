@@ -53,6 +53,23 @@ void setup() {
 // Loop //////////////////////
 void loop() {
 
+  if (Serial.available() > 0) {
+      uinput = Serial.read();
+      
+      if (uinput == 'r') {
+          // Step one revolution in one direction:
+          motor();
+          Serial.println("motor moved");
+          delay(1000);
+      }
 
+      else {
+          // Step one revolution in one direction:
+          Serial.println("motor stoped?");
+          delay(1000);
+    }
+    uinput = '0';
+    
+    }
   
 }
