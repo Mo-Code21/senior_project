@@ -10,3 +10,5 @@ mprls_sensor/
 sensor_orig/
 motor_trial.py
 live_plot.py
+__pycache__/
+test.py
