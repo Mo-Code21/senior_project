@@ -115,17 +115,31 @@
 # ani = FuncAnimation(plt.gcf(), animate, interval=500)
 # plt.tight_layout()
 # plt.show()
-# ########################################################################
+# # ########################################################################
+# from tkinter import *
+# import threading
+
+# root = Tk()
+
+
+# def task():
+#     print("hello")
+#     root.after(2000, task)  # reschedule event in 2 seconds
+
+
+# root.after(2000, task)
+# root.mainloop()
+########################################################################
+
 from tkinter import *
-import threading
 
 root = Tk()
+root.geometry('250x150')
 
+button1 = Button(text="button1")
+button1.pack(side=BOTTOM, pady=6)
 
-def task():
-    print("hello")
-    root.after(2000, task)  # reschedule event in 2 seconds
+button2 = Button(text="button2")
+button2.pack(side=BOTTOM, pady=3)
 
-
-root.after(2000, task)
 root.mainloop()

@@ -1,7 +1,7 @@
 Arduino_LCD/
 Arduino_main/
 Arduino_pressure_sensor/
-CAlibration.txt
+Calibration.txt
 Pipfile
 Pipfile.lock
 fsrguide.pdf
