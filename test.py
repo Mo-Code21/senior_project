@@ -131,15 +131,31 @@
 # root.mainloop()
 ########################################################################
 
-from tkinter import *
+# from tkinter import *
 
-root = Tk()
-root.geometry('250x150')
+# root = Tk()
+# root.geometry('250x150')
 
-button1 = Button(text="button1")
-button1.pack(side=BOTTOM, pady=6)
+# button1 = Button(text="button1")
+# button1.pack(side=BOTTOM, pady=6)
 
-button2 = Button(text="button2")
-button2.pack(side=BOTTOM, pady=3)
+# button2 = Button(text="button2")
+# button2.pack(side=BOTTOM, pady=3)
 
-root.mainloop()
+# root.mainloop()
+# 3
+import serial
+import time
+import csv
+
+arduino = serial.Serial(port='COM3', baudrate=57600)
+while True:
+    raw_data = arduino.readline()
+    data = raw_data.decode('utf-8').strip()
+    print(data)
+    time.sleep(0.5)
+
+    # saving reding to file
+    with open("data.csv", 'a') as file:
+        file.write(data+',')
+        print("data printed")

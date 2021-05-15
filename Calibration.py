@@ -21,24 +21,28 @@ def motor():
     def collect_data():
         # read sensor data
         raw_data = arduino.readline()
-        data = str(raw_data.decode('utf-8'))
+        data = raw_data.decode('utf-8').strip()
         print(data)
         time.sleep(0.5)
 
         # saving reding to file
         with open("data.csv", 'a') as file:
             file_writer = csv.writer(file, delimiter=',')
-            file_writer.writerow(str(data))
-            print("data printed")
+            file_writer.writerow([data])
 
         window.after(500, collect_data)
 
     def run():
         arduino.write(b'r')
+        # arduino.write(b'run')
+        with open("data.csv", 'a') as file:
+            file_writer = csv.writer(file, delimiter=',')
+            file_writer.writerow(['Inf'])
         print('run')
 
     def close():
         arduino.write(b'c')
+        # arduino.write(b'close')
         print('close')
         arduino.close()
         window.destroy()
@@ -47,9 +51,9 @@ def motor():
 
     b2 = tk.Button(window, text="Close", command=close)
 
-    b1.grid(row=1, column=0)
+    # b1.grid(row=1, column=0)
 
-    b2.grid(row=1, column=2)
+    # b2.grid(row=1, column=2)
 
     b1.pack()
     b2.pack()

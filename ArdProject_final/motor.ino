@@ -16,6 +16,7 @@ void motor() {
   digitalWrite(dir2Pin, HIGH);
 
   // Spin the stepper motor 10 BOA steps
+  // Change the delay to change motor speed
   for (int i = 0; i < 57; i++) {
     digitalWrite(step1Pin, HIGH);
     digitalWrite(step2Pin, HIGH);
