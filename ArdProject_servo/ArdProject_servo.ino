@@ -23,6 +23,7 @@ int pos = 0;
 
 
 char uinput=0;
+int p = 1;
 
 
 // Setup //////////////////////
@@ -46,21 +47,21 @@ void loop() {
     
       uinput = Serial.read();
       
-      if (uinput == 'r') {
+      if (uinput == 'r' && p == 1) {
           // Step one revolution in one direction:
           motor();
-          Serial.println("motor moved");
-          pressure();
+//          Serial.println("motor moved");
+//          pressure();
           delay(500);
       }
 
       else {
           // Step one revolution in one direction:
-          Serial.println("motor stoped?");
-          pressure();
+//          Serial.println("motor stoped?");
+//          pressure();
           delay(500);
-    }
-    uinput = '0';
+      }
+      uinput = '0';
     
     
     }

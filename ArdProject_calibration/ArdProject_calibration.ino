@@ -1,6 +1,6 @@
-// 5-3-21
+// 5-14-21
 // Mohammed
-// Motor with pressure sensor
+// Motor with pressure sensor for calibration
 
 // Including libraries:
 #include "HX711.h"
@@ -36,7 +36,6 @@ void setup() {
   // Pressure sensor setup
   Serial.begin(57600);
   sensor.begin(dataPin, sckPin);
-  Serial.println("Sensor initiated");
 
   // Motor Setup
   // Set the PWM and brake pins so that the direction pins can be used to control the motor:
@@ -53,20 +52,23 @@ void setup() {
 // Loop //////////////////////
 void loop() {
 
+  // Running the pressure function
+  pressure();
+
+  // controlling the motor
   if (Serial.available() > 0) {
       uinput = Serial.read();
       
       if (uinput == 'r') {
           // Step one revolution in one direction:
           motor();
-          Serial.println("motor moved");
-          delay(1000);
+
+          delay(500);
       }
 
       else {
-          // Step one revolution in one direction:
-          Serial.println("motor stoped?");
-          delay(1000);
+          // Rest for some time
+          delay(500);
     }
     uinput = '0';
     

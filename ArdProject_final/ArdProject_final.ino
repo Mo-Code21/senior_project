@@ -1,6 +1,6 @@
-// 5-3-21
+// 5-14-21
 // Mohammed
-// Motor with pressure sensor
+// Motor with pressure sensor for final product
 
 // Including libraries:
 #include "HX711.h"
@@ -36,7 +36,6 @@ void setup() {
   // Pressure sensor setup
   Serial.begin(57600);
   sensor.begin(dataPin, sckPin);
-  Serial.println("Sensor initiated");
 
   // Motor Setup
   // Set the PWM and brake pins so that the direction pins can be used to control the motor:
@@ -48,25 +47,58 @@ void setup() {
   pinMode(dir2Pin, OUTPUT);
   
 }
-
+///////////////////////
+// I need to fix the pressure function to convert bytes to pressure values using calibrated equation
+// carry the pressure values to the main script and add it to the if statements
 
 // Loop //////////////////////
 void loop() {
 
+   // Running the pressure function
+  pressure();
+
+  // controlling the motor
   if (Serial.available() > 0) {
       uinput = Serial.read();
       
-      if (uinput == 'r') {
+      if (uinput == 'r' && ) {
           // Step one revolution in one direction:
           motor();
-          Serial.println("motor moved");
-          delay(1000);
+
+          delay(500);
+      }
+
+            if (uinput == 'o' && ) {
+          // Step one revolution in one direction:
+          motor();
+
+          delay(500);
+      }
+
+            if (uinput == 't' && ) {
+          // Step one revolution in one direction:
+          motor();
+
+          delay(500);
+      }
+
+            if (uinput == 'h' && ) {
+          // Step one revolution in one direction:
+          motor();
+
+          delay(500);
+      }
+
+            if (uinput == 'f' && ) {
+          // Step one revolution in one direction:
+          motor();
+
+          delay(500);
       }
 
       else {
-          // Step one revolution in one direction:
-          Serial.println("motor stoped?");
-          delay(1000);
+          // Rest for some time
+          delay(500);
     }
     uinput = '0';
     
